@@ -100,7 +100,7 @@
       max-width: 400px;
       width: 90%;
     }
-    .modal input, .modal textarea {
+    .modal input {
       width: 100%;
       margin: 5px 0;
       padding: 8px;
@@ -127,7 +127,7 @@
 <body>
   <img src="https://raw.githubusercontent.com/dasilvaX7/DASILVAX7/main/7logo.png" alt="logo7" id="logo7" />
   <div class="header">Silva da X7</div>
-  <div id="cart-icon">🛒<span id="cart-count">0</span></div>
+  <div id="cart-icon" onclick="openCart()">🛒<span id="cart-count">0</span></div>
   <div class="products">
     <!-- produtos -->
     <div class="product">
@@ -225,7 +225,9 @@
       <button class="buy-btn" onclick="openBuyModal('5000 NF', 600)">Comprar</button>
       <button class="cart-btn" onclick="addToCart('5000 NF', 600)">Carrinho</button>
     </div>
-  </div>  <!-- modal COMPRAR -->
+  </div> <!-- fim products -->
+
+  <!-- modal COMPRAR -->
   <div class="modal" id="buy-modal">
     <div class="modal-content">
       <h3 id="buy-title"></h3>
@@ -289,7 +291,7 @@
       const estado = document.getElementById("buy-estado").value;
       const product = document.getElementById("buy-modal").dataset.product;
       const price = document.getElementById("buy-modal").dataset.price;
-      const message = `Olá, gostaria de comprar ${product} por R$${price}%0A%0A*Nome:* ${nome}%0A*CEP:* ${cep}%0A*Rua:* ${rua}%0A*Número:* ${numero}%0A*Apto:* ${apto}%0A*Bairro:* ${bairro}%0A*Cidade:* ${cidade}%0A*Estado:* ${estado}`;
+      const message = `Olá, quero comprar ${product} por R$${price}%0A%0A*Nome:* ${nome}%0A*CEP:* ${cep}%0A*Rua:* ${rua}%0A*Número:* ${numero}%0A*Apto:* ${apto}%0A*Bairro:* ${bairro}%0A*Cidade:* ${cidade}%0A*Estado:* ${estado}`;
       window.open(`https://wa.me/5565984685315?text=${message}`, "_blank");
     }
     function openCart() {
@@ -313,10 +315,9 @@
       const cidade = document.getElementById("cart-cidade").value;
       const estado = document.getElementById("cart-estado").value;
       const list = cart.map(i => `${i.product} por R$${i.price}`).join(", ");
-      const message = `Olá, gostaria de comprar os seguintes produtos: ${list}%0A%0A*Nome:* ${nome}%0A*CEP:* ${cep}%0A*Rua:* ${rua}%0A*Número:* ${numero}%0A*Apto:* ${apto}%0A*Bairro:* ${bairro}%0A*Cidade:* ${cidade}%0A*Estado:* ${estado}`;
+      const message = `Olá, quero comprar os seguintes produtos: ${list}%0A%0A*Nome:* ${nome}%0A*CEP:* ${cep}%0A*Rua:* ${rua}%0A*Número:* ${numero}%0A*Apto:* ${apto}%0A*Bairro:* ${bairro}%0A*Cidade:* ${cidade}%0A*Estado:* ${estado}`;
       window.open(`https://wa.me/5565984685315?text=${message}`, "_blank");
     }
   </script>
 </body>
 </html>
-

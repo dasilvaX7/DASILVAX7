@@ -11,6 +11,7 @@
       background: linear-gradient(135deg, #020024, #090979, #00d4ff);
       color: #fff;
       animation: gradient 15s ease infinite;
+      background-size: 400% 400%;
     }
     @keyframes gradient {
       0% { background-position: 0% 50%; }
@@ -117,7 +118,7 @@
       background: #0ff;
       color: #000;
     }
-    /* número 7 fixo */
+    /* numero 7 fixo */
     #logo7 {
       position: fixed;
       top: 10px;
@@ -171,7 +172,65 @@
       <button class="cart-btn" onclick="addToCart('500 NF', 100)">Carrinho</button>
     </div>
 
-    <!-- pode repetir outros produtos do mesmo jeito -->
+    <div class="product">
+      <h2>1000 NF</h2>
+      <p>R$ 150</p>
+      <ul>
+        <li>Fita Holográfica</li>
+        <li>Luz Negra</li>
+        <li>Marca D’água</li>
+        <li>Caneta/Textura</li>
+        <li>Tamanho Real</li>
+        <li>Valor na Luz</li>
+      </ul>
+      <button class="buy-btn" onclick="openBuyModal('1000 NF', 150)">Comprar</button>
+      <button class="cart-btn" onclick="addToCart('1000 NF', 150)">Carrinho</button>
+    </div>
+
+    <div class="product">
+      <h2>2000 NF</h2>
+      <p>R$ 240</p>
+      <ul>
+        <li>Fita Holográfica</li>
+        <li>Luz Negra</li>
+        <li>Marca D’água</li>
+        <li>Caneta/Textura</li>
+        <li>Tamanho Real</li>
+        <li>Valor na Luz</li>
+      </ul>
+      <button class="buy-btn" onclick="openBuyModal('2000 NF', 240)">Comprar</button>
+      <button class="cart-btn" onclick="addToCart('2000 NF', 240)">Carrinho</button>
+    </div>
+
+    <div class="product">
+      <h2>3000 NF</h2>
+      <p>R$ 350</p>
+      <ul>
+        <li>Fita Holográfica</li>
+        <li>Luz Negra</li>
+        <li>Marca D’água</li>
+        <li>Caneta/Textura</li>
+        <li>Tamanho Real</li>
+        <li>Valor na Luz</li>
+      </ul>
+      <button class="buy-btn" onclick="openBuyModal('3000 NF', 350)">Comprar</button>
+      <button class="cart-btn" onclick="addToCart('3000 NF', 350)">Carrinho</button>
+    </div>
+
+    <div class="product">
+      <h2>4000 NF</h2>
+      <p>R$ 480</p>
+      <ul>
+        <li>Fita Holográfica</li>
+        <li>Luz Negra</li>
+        <li>Marca D’água</li>
+        <li>Caneta/Textura</li>
+        <li>Tamanho Real</li>
+        <li>Valor na Luz</li>
+      </ul>
+      <button class="buy-btn" onclick="openBuyModal('4000 NF', 480)">Comprar</button>
+      <button class="cart-btn" onclick="addToCart('4000 NF', 480)">Carrinho</button>
+    </div>
   </div>
 
   <!-- modal endereço -->
@@ -239,7 +298,7 @@
         cidade: document.getElementById("o-cidade").value,
         estado: document.getElementById("o-estado").value
       };
-      // envia dados para serverless
+      // envia para netlify
       fetch("/.netlify/functions/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

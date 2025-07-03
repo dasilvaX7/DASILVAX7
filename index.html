@@ -9,8 +9,8 @@
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #020024, #090979, #00d4ff);
-      animation: gradient 15s ease infinite;
       color: #fff;
+      animation: gradient 15s ease infinite;
     }
     @keyframes gradient {
       0% { background-position: 0% 50%; }
@@ -25,6 +25,16 @@
       font-weight: bold;
       color: #0ff;
       text-shadow: 0 0 10px #0ff;
+    }
+    .menu {
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      padding: 10px;
+    }
+    .menu a {
+      color: #0ff;
+      margin: 0 10px;
+      text-decoration: none;
     }
     .products {
       display: grid;
@@ -48,14 +58,8 @@
       font-size: 1rem;
       cursor: pointer;
     }
-    .buy-btn {
-      background: #ff004c;
-      color: #fff;
-    }
-    .cart-btn {
-      background: #0ff;
-      color: #000;
-    }
+    .buy-btn { background: #ff004c; color: #fff; }
+    .cart-btn { background: #0ff; color: #000; }
     #cart-icon {
       position: fixed;
       top: 20px;
@@ -81,7 +85,7 @@
       line-height: 20px;
       font-size: 0.8rem;
     }
-    /* modal */
+    /* modal estilos */
     .modal {
       display: none;
       position: fixed;
@@ -113,7 +117,7 @@
       background: #0ff;
       color: #000;
     }
-    /* numero 7 fixo */
+    /* número 7 fixo */
     #logo7 {
       position: fixed;
       top: 10px;
@@ -126,197 +130,158 @@
 </head>
 <body>
   <img src="https://raw.githubusercontent.com/dasilvaX7/DASILVAX7/main/7logo.png" alt="logo7" id="logo7" />
+
   <div class="header">Silva da X7</div>
+
+  <div class="menu">
+    <a href="#" onclick="openBalance()">Virada de saldo</a>
+  </div>
+
   <div id="cart-icon" onclick="openCart()">🛒<span id="cart-count">0</span></div>
+
   <div class="products">
-    <!-- produtos -->
     <div class="product">
-      <h2>500 NF</h2>
-      <p>R$ 100</p>
-      <p>🖊️ PASSAM NOS TESTES:</p>
+      <h2>Promoção 700 NF de 20</h2>
+      <p>R$ 120</p>
       <ul>
         <li>Fita Holográfica</li>
         <li>Luz Negra</li>
         <li>Marca D’água</li>
         <li>Caneta/Textura</li>
         <li>Tamanho Real</li>
-        <li>Valor da Nota na Luz</li>
+        <li>Valor na Luz</li>
+      </ul>
+      <button class="buy-btn" onclick="openBuyModal('700 NF de 20', 120)">Comprar</button>
+      <button class="cart-btn" onclick="addToCart('700 NF de 20', 120)">Carrinho</button>
+    </div>
+
+    <!-- outros produtos -->
+    <div class="product">
+      <h2>500 NF</h2>
+      <p>R$ 100</p>
+      <ul>
+        <li>Fita Holográfica</li>
+        <li>Luz Negra</li>
+        <li>Marca D’água</li>
+        <li>Caneta/Textura</li>
+        <li>Tamanho Real</li>
+        <li>Valor na Luz</li>
       </ul>
       <button class="buy-btn" onclick="openBuyModal('500 NF', 100)">Comprar</button>
       <button class="cart-btn" onclick="addToCart('500 NF', 100)">Carrinho</button>
     </div>
 
-    <div class="product">
-      <h2>1000 NF</h2>
-      <p>R$ 150</p>
-      <p>🖊️ PASSAM NOS TESTES:</p>
-      <ul>
-        <li>Fita Holográfica</li>
-        <li>Luz Negra</li>
-        <li>Marca D’água</li>
-        <li>Caneta/Textura</li>
-        <li>Tamanho Real</li>
-        <li>Valor da Nota na Luz</li>
-      </ul>
-      <button class="buy-btn" onclick="openBuyModal('1000 NF', 150)">Comprar</button>
-      <button class="cart-btn" onclick="addToCart('1000 NF', 150)">Carrinho</button>
-    </div>
+    <!-- pode repetir outros produtos do mesmo jeito -->
+  </div>
 
-    <div class="product">
-      <h2>2000 NF</h2>
-      <p>R$ 240</p>
-      <p>🖊️ PASSAM NOS TESTES:</p>
-      <ul>
-        <li>Fita Holográfica</li>
-        <li>Luz Negra</li>
-        <li>Marca D’água</li>
-        <li>Caneta/Textura</li>
-        <li>Tamanho Real</li>
-        <li>Valor da Nota na Luz</li>
-      </ul>
-      <button class="buy-btn" onclick="openBuyModal('2000 NF', 240)">Comprar</button>
-      <button class="cart-btn" onclick="addToCart('2000 NF', 240)">Carrinho</button>
-    </div>
-
-    <div class="product">
-      <h2>3000 NF</h2>
-      <p>R$ 350</p>
-      <p>🖊️ PASSAM NOS TESTES:</p>
-      <ul>
-        <li>Fita Holográfica</li>
-        <li>Luz Negra</li>
-        <li>Marca D’água</li>
-        <li>Caneta/Textura</li>
-        <li>Tamanho Real</li>
-        <li>Valor da Nota na Luz</li>
-      </ul>
-      <button class="buy-btn" onclick="openBuyModal('3000 NF', 350)">Comprar</button>
-      <button class="cart-btn" onclick="addToCart('3000 NF', 350)">Carrinho</button>
-    </div>
-
-    <div class="product">
-      <h2>4000 NF</h2>
-      <p>R$ 480</p>
-      <p>🖊️ PASSAM NOS TESTES:</p>
-      <ul>
-        <li>Fita Holográfica</li>
-        <li>Luz Negra</li>
-        <li>Marca D’água</li>
-        <li>Caneta/Textura</li>
-        <li>Tamanho Real</li>
-        <li>Valor da Nota na Luz</li>
-      </ul>
-      <button class="buy-btn" onclick="openBuyModal('4000 NF', 480)">Comprar</button>
-      <button class="cart-btn" onclick="addToCart('4000 NF', 480)">Carrinho</button>
-    </div>
-
-    <div class="product">
-      <h2>5000 NF</h2>
-      <p>R$ 600</p>
-      <p>🖊️ PASSAM NOS TESTES:</p>
-      <ul>
-        <li>Fita Holográfica</li>
-        <li>Luz Negra</li>
-        <li>Marca D’água</li>
-        <li>Caneta/Textura</li>
-        <li>Tamanho Real</li>
-        <li>Valor da Nota na Luz</li>
-      </ul>
-      <button class="buy-btn" onclick="openBuyModal('5000 NF', 600)">Comprar</button>
-      <button class="cart-btn" onclick="addToCart('5000 NF', 600)">Carrinho</button>
-    </div>
-  </div> <!-- fim products -->
-
-  <!-- modal COMPRAR -->
-  <div class="modal" id="buy-modal">
+  <!-- modal endereço -->
+  <div class="modal" id="order-modal">
     <div class="modal-content">
-      <h3 id="buy-title"></h3>
-      <input type="text" id="buy-name" placeholder="Seu nome" required>
-      <input type="text" id="buy-cep" placeholder="CEP" required>
-      <input type="text" id="buy-rua" placeholder="Rua" required>
-      <input type="text" id="buy-numero" placeholder="Número" required>
-      <input type="text" id="buy-apto" placeholder="Apartamento (opcional)">
-      <input type="text" id="buy-bairro" placeholder="Bairro" required>
-      <input type="text" id="buy-cidade" placeholder="Cidade" required>
-      <input type="text" id="buy-estado" placeholder="Estado" required>
+      <h3 id="order-title"></h3>
+      <input id="o-name" placeholder="Nome completo" />
+      <input id="o-cep" placeholder="CEP" />
+      <input id="o-rua" placeholder="Rua" />
+      <input id="o-numero" placeholder="Número" />
+      <input id="o-apto" placeholder="Apartamento" />
+      <input id="o-bairro" placeholder="Bairro" />
+      <input id="o-cidade" placeholder="Cidade" />
+      <input id="o-estado" placeholder="Estado" />
       <button onclick="finalizeBuy()">Finalizar Pedido</button>
-      <button onclick="closeBuyModal()">Cancelar</button>
+      <button onclick="closeOrderModal()">Cancelar</button>
     </div>
   </div>
 
-  <!-- modal CARRINHO -->
+  <!-- modal PIX -->
+  <div class="modal" id="pix-modal">
+    <div class="modal-content">
+      <h3>PIX para pagamento</h3>
+      <p>Use esta chave PIX para pagar:</p>
+      <p style="word-break: break-all; background: #222; padding: 5px;">7daaee4e-f1d7-44e8-b24b-e43b76925ce9</p>
+      <button onclick="closePixModal()">Fechar</button>
+    </div>
+  </div>
+
+  <!-- modal carrinho -->
   <div class="modal" id="cart-modal">
     <div class="modal-content">
-      <h3>Seu Carrinho</h3>
-      <div id="cart-items"></div>
-      <input type="text" id="cart-name" placeholder="Seu nome" required>
-      <input type="text" id="cart-cep" placeholder="CEP" required>
-      <input type="text" id="cart-rua" placeholder="Rua" required>
-      <input type="text" id="cart-numero" placeholder="Número" required>
-      <input type="text" id="cart-apto" placeholder="Apartamento (opcional)">
-      <input type="text" id="cart-bairro" placeholder="Bairro" required>
-      <input type="text" id="cart-cidade" placeholder="Cidade" required>
-      <input type="text" id="cart-estado" placeholder="Estado" required>
-      <button onclick="finalizeCart()">Finalizar Pedido</button>
-      <button onclick="closeCart()">Cancelar</button>
+      <h3>Carrinho</h3>
+      <ul id="cart-list"></ul>
+      <button onclick="checkoutCart()">Finalizar Pedido</button>
+      <button onclick="closeCart()">Fechar</button>
     </div>
   </div>
 
   <script>
-    const cart = [];
-    function addToCart(product, price) {
-      cart.push({ product, price });
-      updateCartCount();
+    let cart = [];
+    let currentProduct, currentPrice;
+
+    function openBuyModal(prod, price) {
+      currentProduct = prod;
+      currentPrice   = price;
+      document.getElementById("order-title").innerText = 
+        `Pedido: ${prod} — R$${price}`;
+      document.getElementById("order-modal").style.display = "flex";
     }
-    function updateCartCount() {
-      document.getElementById("cart-count").textContent = cart.length;
+    function closeOrderModal() {
+      document.getElementById("order-modal").style.display = "none";
     }
-    function openBuyModal(product, price) {
-      document.getElementById("buy-title").textContent = `Comprando: ${product} - R$${price}`;
-      document.getElementById("buy-modal").style.display = "flex";
-      document.getElementById("buy-modal").dataset.product = product;
-      document.getElementById("buy-modal").dataset.price = price;
-    }
-    function closeBuyModal() {
-      document.getElementById("buy-modal").style.display = "none";
+    function closePixModal() {
+      document.getElementById("pix-modal").style.display = "none";
     }
     function finalizeBuy() {
-      const nome = document.getElementById("buy-name").value;
-      const cep = document.getElementById("buy-cep").value;
-      const rua = document.getElementById("buy-rua").value;
-      const numero = document.getElementById("buy-numero").value;
-      const apto = document.getElementById("buy-apto").value;
-      const bairro = document.getElementById("buy-bairro").value;
-      const cidade = document.getElementById("buy-cidade").value;
-      const estado = document.getElementById("buy-estado").value;
-      const product = document.getElementById("buy-modal").dataset.product;
-      const price = document.getElementById("buy-modal").dataset.price;
-      const message = `Olá, quero comprar ${product} por R$${price}%0A%0A*Nome:* ${nome}%0A*CEP:* ${cep}%0A*Rua:* ${rua}%0A*Número:* ${numero}%0A*Apto:* ${apto}%0A*Bairro:* ${bairro}%0A*Cidade:* ${cidade}%0A*Estado:* ${estado}`;
-      window.open(`https://wa.me/5565984685315?text=${message}`, "_blank");
+      const address = {
+        name:   document.getElementById("o-name").value,
+        cep:    document.getElementById("o-cep").value,
+        rua:    document.getElementById("o-rua").value,
+        numero: document.getElementById("o-numero").value,
+        apto:   document.getElementById("o-apto").value,
+        bairro: document.getElementById("o-bairro").value,
+        cidade: document.getElementById("o-cidade").value,
+        estado: document.getElementById("o-estado").value
+      };
+      // envia dados para serverless
+      fetch("/.netlify/functions/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          product: currentProduct,
+          price:   currentPrice,
+          address
+        })
+      }).then(() => {
+        closeOrderModal();
+        document.getElementById("pix-modal").style.display = "flex";
+      });
+    }
+    function addToCart(prod, price) {
+      cart.push({prod, price});
+      document.getElementById("cart-count").innerText = cart.length;
     }
     function openCart() {
-      let items = "";
+      let list = document.getElementById("cart-list");
+      list.innerHTML = "";
       cart.forEach(item => {
-        items += `<p>${item.product} - R$${item.price}</p>`;
+        let li = document.createElement("li");
+        li.textContent = `${item.prod} — R$${item.price}`;
+        list.appendChild(li);
       });
-      document.getElementById("cart-items").innerHTML = items;
       document.getElementById("cart-modal").style.display = "flex";
     }
     function closeCart() {
       document.getElementById("cart-modal").style.display = "none";
     }
-    function finalizeCart() {
-      const nome = document.getElementById("cart-name").value;
-      const cep = document.getElementById("cart-cep").value;
-      const rua = document.getElementById("cart-rua").value;
-      const numero = document.getElementById("cart-numero").value;
-      const apto = document.getElementById("cart-apto").value;
-      const bairro = document.getElementById("cart-bairro").value;
-      const cidade = document.getElementById("cart-cidade").value;
-      const estado = document.getElementById("cart-estado").value;
-      const list = cart.map(i => `${i.product} por R$${i.price}`).join(", ");
-      const message = `Olá, quero comprar os seguintes produtos: ${list}%0A%0A*Nome:* ${nome}%0A*CEP:* ${cep}%0A*Rua:* ${rua}%0A*Número:* ${numero}%0A*Apto:* ${apto}%0A*Bairro:* ${bairro}%0A*Cidade:* ${cidade}%0A*Estado:* ${estado}`;
-      window.open(`https://wa.me/5565984685315?text=${message}`, "_blank");
+    function checkoutCart() {
+      if(cart.length === 0) return alert("Carrinho vazio!");
+      let total = cart.reduce((sum,i) => sum + i.price, 0);
+      currentProduct = "Carrinho: " + cart.map(i=>i.prod).join(", ");
+      currentPrice   = total;
+      document.getElementById("order-title").innerText = 
+        `Carrinho total R$${total}`;
+      document.getElementById("order-modal").style.display = "flex";
+      closeCart();
+    }
+    function openBalance() {
+      window.open("https://wa.me/5565984685315?text=olá%20como%20funciona%20virada%20de%20saldo", "_blank");
     }
   </script>
 </body>
